@@ -120,7 +120,16 @@
     const files = await getWinFiles();
     $gm.openUpload({ files, path: '/www' });
   })
-  console.log($gm.request)
+  // 初始化
+  window.$gm.request('/api/center/check_status', {
+            method: 'post',
+            data: {
+              app_name: window?.$gm?.name,
+              version: window?.$gm?.version,
+              communication_type: 'socket',
+            },
+          })
+
 
 </script>
 </body>
